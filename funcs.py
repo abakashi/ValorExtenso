@@ -37,7 +37,6 @@ def num_inputer():
     except ValueError:
         print('Tipo não aceito. \nUse somente números inteiros.')
         number = int(input('Insira um número de 0 à 999: \n'))
-
     return number
 
 
@@ -76,7 +75,6 @@ def two_algarisms_namer(num):
         extense = DEZENA[1][int(str_num[1])]
     else:
         extense = DEZENA[int(str_num[0])] + JUNC + UNIDADE[int(str_num[1])]
-
     return extense
 
 
@@ -90,4 +88,3 @@ def one_algarism_namer(num):
 
 
 if __name__ == '__main__':
-    print(two_algarisms_namer(11))
