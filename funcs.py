@@ -3,13 +3,13 @@ Módulo de funções do programa.
 """
 
 
-CENTENA = ('', 'Cento', 'Duzentos', 'Trezentos', 'Quatrocentos', 'Quinhentos', 'Seiscentos', 'Setecentos', 'Oitocentos',
+HUNDREDS = ('', 'Cento', 'Duzentos', 'Trezentos', 'Quatrocentos', 'Quinhentos', 'Seiscentos', 'Setecentos', 'Oitocentos',
            'Novecentos')
 
-DEZENA = ('', ('Dez', 'Onze', 'Doze', 'Treze', 'Quatorze', 'Quinze', 'Dezesseis', 'Dezessete', 'Dezoito', 'Dezenove'),
+DOZENS = ('', ('Dez', 'Onze', 'Doze', 'Treze', 'Quatorze', 'Quinze', 'Dezesseis', 'Dezessete', 'Dezoito', 'Dezenove'),
           'Vinte', 'Trinta', 'Quarenta', 'Cinquenta', 'Sessenta', 'Setenta', 'Oitenta', 'Noventa')
 
-UNIDADE = ('', 'Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove')
+UNITS = ('', 'Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove')
 
 JUNC = ' e '
 
@@ -50,13 +50,13 @@ def three_algarisms_namer(num):
     if str_num == '100':
         extense = 'Cem'
     elif str_num[1:3] == '00':
-        extense = CENTENA[int(str_num[0])]
+        extense = HUNDREDS[int(str_num[0])]
     elif str_num[1] == '1':
-        extense = CENTENA[int(str_num[0])] + JUNC + DEZENA[1][int(str_num[2])]
+        extense = HUNDREDS[int(str_num[0])] + JUNC + DOZENS[1][int(str_num[2])]
     elif str_num[1] == '0':
-        extense = CENTENA[int(str_num[0])] + JUNC + UNIDADE[int(str_num[2])]
+        extense = HUNDREDS[int(str_num[0])] + JUNC + UNITS[int(str_num[2])]
     else:
-        extense = CENTENA[int(str_num[0])] + JUNC + DEZENA[int(str_num[1])] + JUNC + UNIDADE[int(str_num[2])]
+        extense = HUNDREDS[int(str_num[0])] + JUNC + DOZENS[int(str_num[1])] + JUNC + UNITS[int(str_num[2])]
     return extense
 
 
@@ -68,13 +68,13 @@ def two_algarisms_namer(num):
     """
     str_num = str(num)
     if str_num == '10':
-        extense = DEZENA[1][0]
+        extense = DOZENS[1][0]
     elif str_num[1] == '0':
-        extense = DEZENA[int(str_num[0])]
+        extense = DOZENS[int(str_num[0])]
     elif str_num[0] == '1':
-        extense = DEZENA[1][int(str_num[1])]
+        extense = DOZENS[1][int(str_num[1])]
     else:
-        extense = DEZENA[int(str_num[0])] + JUNC + UNIDADE[int(str_num[1])]
+        extense = DOZENS[int(str_num[0])] + JUNC + UNITS[int(str_num[1])]
     return extense
 
 
@@ -84,7 +84,7 @@ def one_algarism_namer(num):
     :param num: Número inteiro para entrada
     :return: Número por extenso como String
     """
-    return UNIDADE[num]
+    return UNITS[num]
 
 
 if __name__ == '__main__':
