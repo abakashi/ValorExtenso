@@ -85,6 +85,3 @@ def one_algarism_namer(num):
     :return: Número por extenso como String
     """
     return UNITS[num]
-
-
-if __name__ == '__main__':
